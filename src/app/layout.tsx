@@ -3,6 +3,9 @@ import { Space_Grotesk } from "next/font/google";
 import "@/styles/globals.css";
 import siteMetadata from "@/data/siteMetadata";
 import { siteUrl } from "@/config";
+import { ThemeProvider } from "next-themes";
+import Header from "@/components/header";
+import MaxWidthContainer from "@/components/max-width-container";
 
 // Font you can change if you want to use other font
 const space_grotesk = Space_Grotesk({
@@ -54,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* favicons */}
         <link
@@ -98,7 +101,12 @@ export default function RootLayout({
       </head>
 
       <body className={`${space_grotesk.className} antialiased`}>
-        {children}
+        <ThemeProvider>
+          <MaxWidthContainer>
+            <Header />
+            {children}
+          </MaxWidthContainer>
+        </ThemeProvider>
       </body>
     </html>
   );

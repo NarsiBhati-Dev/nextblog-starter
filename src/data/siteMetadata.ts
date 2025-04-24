@@ -9,7 +9,7 @@ if (!siteUrl) {
 const SITE_URL = siteUrl.replace(/\/$/, "");
 
 const siteMetadata = {
-  title: "NextBlog Blog Starter",
+  title: "Next.js Blog Starter",
   author: "Narsi Bhati",
   headerTitle: "NextBlog",
   description:
